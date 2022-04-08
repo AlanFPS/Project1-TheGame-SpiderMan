@@ -6,15 +6,27 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="//cdn.jsdelivr.net/npm/phaser@3.16.2/dist/phaser.js"></script>
     <style type="text/css">
-        body {
-            margin: 0;
-        }
     </style>
 </head>
 <body>
+
+    <div class="splash">
+        <h1 class="fade-in intro">
+    <img src="assets/intro.png">
+        </img></h1>
+    </div>
+
 <script type="text/javascript">
 
-// //   INTRO
+// //  INTRO FADE-IN MAX
+const splash = document.querySelector(".splash");
+document.addEventListener("DOMContentLoaded", (e) => {
+  setTimeout(() => {
+    splash.classList.add("display-none");
+  }, 9000);
+});
+
+// //  INTRO
 // var loaderSceneConfig = {
 //     key: 'loader',
 //     active: true,
@@ -43,7 +55,11 @@ var config = {
     backgroundColor: '#000',
     parent: 'phaser-example',
     // scene: [ loaderSceneConfig, demoSceneConfig ],
-    
+
+    audio: {
+        disableWebAudio: true
+    },
+
     scale: {
         parent: 'phaser-example',
         mode: Phaser.Scale.FIT,
@@ -97,6 +113,7 @@ function preload ()
     this.load.spritesheet('dude', 'assets/dude2.png', { frameWidth: 40 , frameHeight: 63 });
     // this.load.spritesheet('dudejump', 'assets/dudejump.png', { frameWidth: 40 , frameHeight: 63});
     // this.load.image('fire', 'assets/muzzleflash3.png');
+    this.load.audio('theme', [ 'assets/City.mp3' ]);
 }
 
 function create ()
@@ -131,7 +148,11 @@ function create ()
    /////////////////// FIRE ENDS /////////////
     ///////////////////////////////////////////
 
-    // // Game title
+    // //  Music
+    var music = this.sound.add('theme');
+    music.play();
+
+    // //  Game title
     this.add.text(80, 560, 'Game Title: ' + game.config.gameTitle, 
     { font: '16px Courier', fill: '#ffffff' });
 
