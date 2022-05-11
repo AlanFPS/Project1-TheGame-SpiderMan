@@ -2,7 +2,7 @@
 
 # PROJECT #1 | The Game (Spider-Man by Alan Parasole Sanchez)
 
-[Click here](https://alaanarg.github.io/Project1-TheGame-SpiderMan/) to play the game!
+[Click here](https://alanfps.github.io/Project1-TheGame-SpiderMan/) to play the game!
 
 ## Introduction
 
